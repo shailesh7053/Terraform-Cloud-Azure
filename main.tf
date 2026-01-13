@@ -13,17 +13,17 @@ provider "azurerm" {
   }
 }
 
-resource "azurerm_resource_group" "StorageAccount" {
+resource "azurerm_resource_group" "storageaccount" {
   name     = "storage-acc-rg"
   location = "East US"
 }
 
-resource "azurerm_storage_account" "StorageAccount" {
+resource "azurerm_storage_account" "storageaccount" {
   name                     = "storage-acc-01"
-  resource_group_name      = azurerm_resource_group.StorageAccount.name
-  location                 = azurerm_resource_group.StorageAccount.location
+  resource_group_name      = azurerm_resource_group.storageaccount.name
+  location                 = azurerm_resource_group.storageaccount.location
   account_tier             = "Standard"
-  account_replication_type = "GRS"
+  account_replication_type = "LRS"
 
   tags = {
     environment = "staging"
